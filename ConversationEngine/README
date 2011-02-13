@@ -1,0 +1,13 @@
+-----------------------------------------------------------------------------------------
+--
+--	charlieHUGE - FreeGameCode
+--
+-- 	More about me at: www.charliehuge.com
+--
+-----------------------------------------------------------------------------------------
+
+Conversation Engine
+
+This is a simple system that navigates an XML-defined dialog tree. It's probably more
+appropriate to call it a "dialog web" as any node can connect to any other node in the
+XML document.
