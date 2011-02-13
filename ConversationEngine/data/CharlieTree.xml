@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DialogTree name="CharlieTree">
+  <DialogNode name="top">
+    <Text>Hello, I'm Charlie.</Text>
+    <Text>So, uh...what's up?</Text>
+    <Text>...</Text>
+    <Response nextNode="AboutMe">Hi Charlie, I hear you make games.</Response>
+    <Response nextNode="OnlyOne">Um, can I talk to someone else?</Response>
+    <Response nextNode="SanJose">Do you know the way to San Jose?</Response>
+    <Response nextNode="top">...</Response>
+  </DialogNode>
+  
+  
+  
+  <DialogNode name="Quest">
+    <Text>To find the Holy--oh wait, no. Well, right now? To find a job.</Text>
+    <Response nextNode="top">...</Response>
+  </DialogNode>
+  
+  
+  
+  <DialogNode name="OnlyOne" action="sfx" actionParam1="Eerie">
+    <Text>[looks around] We're the only ones here. I suppose you could talk to yourself, though.</Text>
+    <Response nextNode="TalkSelf">I think I will. Excuse me...</Response>
+    <Response nextNode="top">That would be...weird.</Response>
+  </DialogNode>
+  <DialogNode name="TalkSelf">
+    <Text>[crosses arms and eyes you warily]</Text>
+    <Response nextNode="TalkSelfWeather">So, self. The weather has been splendid lately, yes?</Response>
+    <Response nextNode="TalkSelfWoodchuck">How much wood would a woodchuck chuck if a woodchuck could chuck wood?</Response>
+  </DialogNode>
+  <DialogNode name="TalkSelfWoodchuck">
+    <Text>...</Text>
+    <Response nextNode="TalkSelfTimePasses">Howmuchwoodwouldawoodchuckchuckifawoodchuckcouldchuckwood?</Response>
+    <Response nextNode="top">Um, yeah. This is weird.</Response>
+  </DialogNode>
+  <DialogNode name="TalkSelfWeather">
+    <Text>...</Text>
+    <Response nextNode="TalkSelfTimePasses">Why yes! I quite enjoy a roll in the meadow on a dewy morning, don't you?</Response>
+    <Response nextNode="top">Um, yeah. This is weird.</Response>
+  </DialogNode>
+  <DialogNode name="TalkSelfTimePasses">
+    <Text>[You talk into the wee hours. With yourself. Charlie has fallen asleep.]</Text>
+    <Response nextNode="top">[poke Charlie]</Response>
+  </DialogNode>
+  
+  
+  
+  <DialogNode name="SanJose" action="music" actionParam1="SanJose">
+    <Text>[begins singing]</Text>
+    <Response nextNode="top">Agh! My ears!</Response>
+  </DialogNode>
+
+
+
+  <DialogNode name="AboutMe">
+    <Text>That I do! Do you have a specific question about that?</Text>
+    <Response nextNode="Specialty">What's your specialty?</Response>
+    <Response nextNode="YearsExp">Have you made games for very long?</Response>
+    <Response nextNode="WhyGames">Why games? Surely you like money and free time.</Response>
+  </DialogNode>
+  <DialogNode name="AboutMe2">
+    <Text>What else would you like to know?</Text>
+    <Response nextNode="Specialty">What's your specialty?</Response>
+    <Response nextNode="YearsExp">Have you made games for very long?</Response>
+    <Response nextNode="WhyGames">Why games? Surely you like money and free time.</Response>
+  </DialogNode>
+
+  <DialogNode name="YearsExp">
+    <Text>I've been in the game industry for nearly three years.</Text>
+    <Response nextNode="AboutMe2">...</Response>
+  </DialogNode>
+
+  <DialogNode name="WhyGames">
+    <Text>Hah! I do, but not as much as I enjoy creating experiences for people.</Text>
+    <Response nextNode="AboutMe2">...</Response>
+  </DialogNode>
+  
+  <DialogNode name="Specialty">
+    <Text>Most of my experience is in systems design, but I've filled many roles.</Text>
+    <Response nextNode="Systems">Sweet! What kinds of systems have you made?</Response>
+    <Response nextNode="JackOfAllTrades">A jack of all trades, eh?</Response>
+    <Response nextNode="LevelDesign">I really need a level designer. Can you do that?</Response>
+  </DialogNode>
+  <DialogNode name="Systems">
+    <Text>Well, for starters, this dialog system. Also, music/gameplay timing systems, AI group battle tactics, and numerous gameplay prototypes.</Text>
+    <Response nextNode="Contact">Cool! I'm actually looking for someone like you.</Response>
+    <Response nextNode="ProgrammingLanguages">Do you know any programming languages?</Response>
+    <Response nextNode="LevelDesign">I really need a level designer. Can you do that?</Response>
+  </DialogNode>
+  <DialogNode name="JackOfAllTrades">
+    <Text>Yep, I'm comfortable jumping into any role, and I like to take on tasks that are over my head so I can learn.</Text>
+    <Response nextNode="Contact">Cool! I'm actually looking for someone like you.</Response>
+    <Response nextNode="ProgrammingLanguages">Do you know any programming languages?</Response>
+  </DialogNode>
+  <DialogNode name="ProgrammingLanguages">
+    <Text>Yes I do! C#, Lua, C/C++, GameMonkey, and a few others.</Text>
+    <Response nextNode="Contact">Cool! I'm actually looking for someone like you.</Response>
+    <Response nextNode="LevelDesign">What about level editors? Know your way around those?</Response>
+  </DialogNode>
+  <DialogNode name="LevelDesign">
+    <Text>I don't have any professional experience doing level design, but I do know my way around Unity, Unreal, and Radiant.</Text>
+    <Response nextNode="Contact">Cool! I'm actually looking for someone like you.</Response>
+    <Response nextNode="JustLevels">Bummer. I really just wanted a level designer.</Response>
+  </DialogNode>
+  <DialogNode name="JustLevels">
+    <Text>Well, I'm always open to learning. Did I mention I'm a really quick learner?</Text>
+    <Response nextNode="Contact">Let me get your contact info, just in case.</Response>
+  </DialogNode>
+
+  <DialogNode name="Contact">
+    <Text>Awesome! If you want to get in touch with me, email me at charlie.huguenard@gmail.com or call me at 415-994-9671.</Text>
+    <Response nextNode="top">[start over]</Response>
+  </DialogNode>
+</DialogTree>
