@@ -11,12 +11,12 @@ function State.new( name )
 	
 	---------------------------------------------------------------
 	-- Data Members
-
+	---------------------------------------------------------------
 	local m_Name = name
 	
 	---------------------------------------------------------------
 	-- Public Functions
-		
+	---------------------------------------------------------------		
 	function self.Enter( agent )
 		--Output( "Entering " .. m_Name .. " for " .. agent.GetName() )
 		if( StateTemplates[ m_Name ] and StateTemplates[ m_Name ].Enter ) then

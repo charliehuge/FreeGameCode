@@ -21,6 +21,9 @@ StateTemplates.GLOBAL = {
 			end
 		end
 	end,
+	Update = function( agent )
+		return
+	end,
 }
 
 --------------------------------------------------------------------

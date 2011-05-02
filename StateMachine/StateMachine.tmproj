@@ -3,64 +3,64 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Main.lua</string>
+	<string>README</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>Agent.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T03:55:13Z</date>
+			<date>2011-05-02T04:56:24Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>MessageManager.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T01:45:32Z</date>
+			<date>2011-05-02T04:55:07Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>Message.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T03:55:05Z</date>
+			<date>2011-05-02T04:55:09Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>State.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T01:45:40Z</date>
+			<date>2011-05-02T04:55:24Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>Main.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T04:22:07Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2011-05-02T04:55:05Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>AgentManager.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T03:57:56Z</date>
+			<date>2011-05-02T04:56:27Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>Time.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T01:14:09Z</date>
+			<date>2011-05-02T04:50:29Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>StateTemplates.lua</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T04:20:11Z</date>
+			<date>2011-05-02T04:56:30Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>README</string>
 			<key>lastUsed</key>
-			<date>2011-05-02T04:22:07Z</date>
+			<date>2011-05-02T04:56:30Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -72,67 +72,51 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>85</integer>
+				<integer>34</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>37</integer>
+			<integer>52</integer>
 		</dict>
 		<key>AgentManager.lua</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>26</integer>
+				<integer>18</integer>
 				<key>line</key>
-				<integer>49</integer>
+				<integer>58</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>32</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>9</integer>
-				<key>line</key>
-				<integer>49</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>37</integer>
-				<key>line</key>
-				<integer>49</integer>
-			</dict>
+			<integer>14</integer>
 		</dict>
 		<key>Main.lua</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>32</integer>
+				<integer>59</integer>
 				<key>line</key>
-				<integer>38</integer>
+				<integer>20</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>22</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Message.lua</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -144,9 +128,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>43</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>README</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>18</integer>
+				<key>line</key>
+				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -158,9 +156,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>64</integer>
 				<key>line</key>
-				<integer>43</integer>
+				<integer>18</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -172,30 +170,28 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>8</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>24</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
+		</dict>
+		<key>Time.lua</key>
+		<dict>
+			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>7</integer>
 			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -205,8 +201,10 @@
 		<string>Message.lua</string>
 		<string>State.lua</string>
 		<string>StateTemplates.lua</string>
+		<string>README</string>
 		<string>Agent.lua</string>
 		<string>AgentManager.lua</string>
+		<string>Time.lua</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

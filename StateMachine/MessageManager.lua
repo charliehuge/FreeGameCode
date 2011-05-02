@@ -5,8 +5,11 @@
 --------------------------------------------------------------------
 require "Message"
 
-local MessageQueue = {}
+local MessageQueue = {} -- not actually a queue...
 
+--------------------------------------------------------------------
+-- Send a message, if there's a delay, add it to the queue
+--------------------------------------------------------------------
 function SendMessage( message )
 	if( message.GetSendTime() <= GetTime() ) then
 		message.GetReceiver().HandleMessage( message )
@@ -15,6 +18,9 @@ function SendMessage( message )
 	end
 end
 
+--------------------------------------------------------------------
+-- Send any messages whose expiration dates have come up
+--------------------------------------------------------------------
 function SendDelayedMessages()
 	local idxsToRemove = {}
 	for idx, msg in ipairs( MessageQueue ) do

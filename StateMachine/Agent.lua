@@ -19,11 +19,11 @@ function Agent.new( name, initialState )
 	
 	---------------------------------------------------------------
 	-- Data Members
-	
-	local m_ID 				= GetNextValidID()
-	local m_Name 			= name
+	---------------------------------------------------------------	
+	local m_ID				= GetNextValidID()
+	local m_Name			= name
 	local m_GlobalState		= State.new( "GLOBAL" )
-	local m_CurrentState 	= State.new( initialState )
+	local m_CurrentState	= State.new( initialState )
 	local m_LastState		= nil
 	local m_Attributes = {
 		fatigue		= 0,
@@ -31,19 +31,15 @@ function Agent.new( name, initialState )
 		bladder		= 0,
 		hunger		= 0,
 		thirst		= 0,
-		frustration = 0,
-		depression 	= 0,
+		frustration	= 0,
+		depression	= 0,
 	}
 	
 	---------------------------------------------------------------
-	-- Private Functions
-	
-	
-	---------------------------------------------------------------
 	-- Public Functions
-	
+	---------------------------------------------------------------	
 	function self.Update()
-		--m_GlobalState.Update( self )
+		m_GlobalState.Update( self )
 		m_CurrentState.Update( self )
 	end
 	
