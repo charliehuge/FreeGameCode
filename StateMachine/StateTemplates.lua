@@ -11,8 +11,8 @@ StateTemplates = {}
 --------------------------------------------------------------------
 StateTemplates.GLOBAL = {
 	OnMessage = function( msg )
-		if( msg.GetMessage() == "Delayed Poke of Death!" ) then
-			local me = msg.GetReceiver()
+		if( msg.message == "Delayed Poke of Death!" ) then
+			local me = msg.receiver
 			me.SetAttribute( "fatigue", me.GetAttribute( "fatigue" ) + 10 )
 			if( me.GetCurrentStateName() ~= "GoToSleep" ) then
 				--me.ChangeState( "GoToSleep" )

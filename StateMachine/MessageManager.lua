@@ -11,8 +11,8 @@ local MessageQueue = {} -- not actually a queue...
 -- Send a message, if there's a delay, add it to the queue
 --------------------------------------------------------------------
 function SendMessage( message )
-	if( message.GetSendTime() <= GetTime() ) then
-		message.GetReceiver().HandleMessage( message )
+	if( message.sendTime <= GetTime() ) then
+		message.receiver.HandleMessage( message )
 	else
 		table.insert( MessageQueue, message )
 	end
@@ -24,8 +24,8 @@ end
 function SendDelayedMessages()
 	local idxsToRemove = {}
 	for idx, msg in ipairs( MessageQueue ) do
-		if( msg.GetSendTime() <= GetTime() ) then
-			msg.GetReceiver().HandleMessage( msg )
+		if( msg.sendTime <= GetTime() ) then
+			msg.receiver.HandleMessage( msg )
 			table.insert( idxsToRemove, idx )
 		end
 	end
