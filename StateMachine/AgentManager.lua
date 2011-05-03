@@ -64,6 +64,23 @@ function AgentManager_FindRandomAgent( notThisAgent )
 	return m_Agents[ rand ]
 end
 
+function AgentManager_FindAllAgents( notThisAgent )
+	local agents = table.copy( m_Agents ) -- copy the table so we don't wreck it
+	
+	if( notThisAgent ) then
+		local removeMe = nil
+		for idx, agent in ipairs( agents ) do
+			if( agent == notThisAgent ) then
+				removeMe = idx
+			end
+		end
+		if( removeMe ) then
+			table.remove( agents, idx )
+		end
+	end
+	
+	return agents
+end
 --------------------------------------------------------------------
 --------------------------------------------------------------------
 Init()

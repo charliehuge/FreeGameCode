@@ -11,12 +11,22 @@ StateTemplates = {}
 --------------------------------------------------------------------
 StateTemplates.GLOBAL = {
 	OnMessage = function( msg )
-		if( msg.message == "Delayed Poke of Death!" ) then
-			local me = msg.receiver
+		local me = msg.receiver
+		
+		-- Poke of death!
+		if( msg.message == "Delayed Poke of Death!" ) then		
 			me.SetAttribute( "fatigue", me.GetAttribute( "fatigue" ) + 10 )
 			if( me.GetCurrentStateName() ~= "GoToSleep" ) then
 				--me.ChangeState( "GoToSleep" )
 				me.Say( "I died!" )
+				AgentManager_RemoveAgent( me.GetID() )
+			end
+		-- Explosion
+		elseif( msg.message == "Big 'splosion" ) then
+			if( me == msg.sender ) then
+				me.RevertToLastState()
+			else
+				me.Say( "I died in a big explosion! Ow!" )
 				AgentManager_RemoveAgent( me.GetID() )
 			end
 		end
@@ -43,8 +53,13 @@ StateTemplates.BeAwake = {
 		if( rand < 0.1 and agent.GetAttribute( "jitters" ) < 5 ) then
 			agent.ChangeState( "DrinkCoffee" )
 			return
+		--[[
 		elseif( rand < 0.2 ) then
 			agent.ChangeState( "DelayedPokeOfDeath" )
+			return
+		--]]
+		elseif( rand < 0.4 ) then
+			agent.ChangeState( "Explode" )
 			return
 		end
 		
@@ -111,6 +126,19 @@ StateTemplates.DelayedPokeOfDeath = {
 			SendMessage( Message.new( agent, target, "Delayed Poke of Death!", GetTime() + 1000 , nil ) )
 		end
 		agent.RevertToLastState()
+	end,
+}
+
+--------------------------------------------------------------------
+-- Explode
+--------------------------------------------------------------------
+StateTemplates.Explode = {
+	Enter = function( agent )
+		agent.Say( "I'mma chargin' mah explosion!!!" )
+		local everyone = AgentManager_FindAllAgents( )
+		for _, otherAgent in ipairs( everyone ) do
+			SendMessage( Message.new( agent, otherAgent, "Big 'splosion", GetTime() + 2000, nil ) )
+		end
 	end,
 }
 

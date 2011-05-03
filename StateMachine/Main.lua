@@ -8,6 +8,7 @@
 require "AgentManager"
 require "MessageManager"
 require "Time"
+require "Tools"
 
 print("Starting Main.lua");
 
@@ -16,18 +17,6 @@ print("Starting Main.lua");
 --------------------------------------------------------------------
 math.randomseed( GetTime() )
 math.random(); math.random(); math.random()
-
---------------------------------------------------------------------
--- Add time stamps to output (this should go somewhere else)
---------------------------------------------------------------------
-PRINTTIMESTAMPS = true
-function Output( str )
-	if( PRINTTIMESTAMPS ) then
-		print( os.date( "%X") .. " - " .. str )
-	else
-		print( str )
-	end
-end
 
 --------------------------------------------------------------------
 -- Program Contents
