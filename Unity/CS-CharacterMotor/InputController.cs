@@ -42,14 +42,5 @@ public class InputController : MonoBehaviour
 	    // Apply the direction to the CharacterMotor
 	    motor.inputMoveDirection = transform.rotation * directionVector;
 	    motor.inputJump = Input.GetButton("Jump");
-
-        // handle mouse click
-        if (Input.GetMouseButtonUp(0))
-        {
-            // make the test character move to the click position
-            RaycastHit hit;
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-                GameObject.Find("Character").GetComponent<AI>().PathToPos(hit.point);
-        }
     }
 }
