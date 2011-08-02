@@ -522,7 +522,7 @@ public class CharacterMotor : MonoBehaviour
 			    yield return new WaitForFixedUpdate();
 			    yield return new WaitForFixedUpdate();
 			    if (grounded && platform == movingPlatform.activePlatform)
-				    yield return new WaitForSeconds(1);
+				    yield return null;
 		    }
 		    movement.velocity -= movingPlatform.platformVelocity;
 	    }
