@@ -1,0 +1,7 @@
+------------------------------------------------------------------
+	Maze Generator + Maze Solver
+	Author: Charlie Huguenard
+------------------------------------------------------------------
+
+Here's some Java code to generate a maze using a dept-first search,
+the solve it using a couple different algorithms.
