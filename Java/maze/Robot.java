@@ -13,7 +13,7 @@ import java.util.Random;
 import maze.Enums.*;
 
 public class Robot {
-    private static enum Algorithm { WALLFLOWER, TREMAUX };
+    private static enum Algorithm { WALLFLOWER, TREMAUX, RANDOM };
     private static final Random rand = new Random();
     
     private Vector2 startPos;
@@ -35,11 +35,16 @@ public class Robot {
     
     public void Draw(Graphics g) {
         g.setColor(Color.red);
-        g.fillOval((int)pos.x, (int)pos.y, 6, 6);
+        int tileSize = maze.GetTileSize();
+        g.fillOval((int)pos.x, (int)pos.y, tileSize, tileSize);
     }
     
     public void SetPos(Vector2 pos) {
         this.pos = pos;
+    }
+    
+    public void SetStartPos(Vector2 pos) {
+        this.startPos = pos;
     }
     
     public void Update(float deltaTime) {
@@ -55,7 +60,6 @@ public class Robot {
                 int nextAlgoInt = algo.ordinal() + 1;
                 if(nextAlgoInt == Algorithm.values().length) {
                     maze.Generate();
-                    startPos = pos;
                     nextAlgoInt = 0;
                 }
                 algo = Algorithm.values()[nextAlgoInt];
@@ -74,6 +78,9 @@ public class Robot {
                     break;
                 case TREMAUX:
                     TremauxUpdate(curTile);
+                    break;
+                default:
+                    RandomUpdate(curTile);
                     break;
             }
         }
@@ -109,22 +116,32 @@ public class Robot {
         // find out how many options there are
         ArrayList<Integer> options = new ArrayList<Integer>();
         for(int i = 0; i < 4; i++) {
-            if(curTile.walls[i]) {
+            if(!curTile.walls[i]) {
                 options.add(i);
             }
         }
-        // if there's a wall in the current direction
-        // or the current direction is the opposite way 
-        // and there's more than one option, try another random direction
-        while(curTile.walls[dir.ordinal()] || (options.size() > 1 && dir == opposite)) {
-            if(options.size() == 1) {
-                System.out.println("1!!");
-                dir = opposite;
-            }
-            else {
+        
+        // if there are more than 2 options, 
+        // pick a random one that's not the way it came from
+        if(options.size() > 2) {
+            do {
                 dir = Direction.values()[options.get(rand.nextInt(options.size()))];
+            } while(dir == opposite);            
+        }
+        // if there are 2 options, pick the one that's not the way it came from
+        else if(options.size() == 2) {
+            for(int dirInt : options) {
+                if(dirInt != opposite.ordinal()) {
+                    dir = Direction.values()[dirInt];
+                    break;
+                }
             }
         }
+        // else, turn around
+        else {
+            dir = opposite;
+        }
+
         pos = maze.GetTilePos(curTile.GetNeighbors()[dir.ordinal()]);
     }
     

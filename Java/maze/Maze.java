@@ -14,9 +14,9 @@ import java.util.Stack;
 import maze.Enums.*;
 
 public class Maze {
-    private static final int COLS = 77;
-    private static final int ROWS = 42;
-    private static final int TILE_SIZE = 10;
+    private static final int COLS = 38;
+    private static final int ROWS = 21;
+    private static final int TILE_SIZE = 20;
     private static final Vector2 TOP_LEFT = new Vector2(20,20);
     private static final Random rand = new Random();
     
@@ -47,6 +47,10 @@ public class Maze {
         Generate();
     }
     
+    public int GetTileSize() {
+        return TILE_SIZE;
+    }
+    
     public void Clear() {
         for(int x = 0; x < COLS; x++) {
             for(int y = 0; y < ROWS; y++) {
@@ -57,7 +61,7 @@ public class Maze {
     
     public void Generate() {
         Clear();
-        /*  PSEUDOCODE! (from www.mazeworks.com)
+        /*  PSEUDOCODE!
             create a CellStack (LIFO) to hold a list of cell locations  
             set TotalCells = number of cells in grid  
             choose a cell at random and call it CurrentCell  
@@ -84,7 +88,12 @@ public class Maze {
         int randRow = rand.nextInt(ROWS);
         Tile curTile = tiles[randCol][randRow];
         curTile.SetType(TileType.START);
-        robot.SetPos(Vector2.Add(TOP_LEFT, new Vector2(randCol * TILE_SIZE, randRow * TILE_SIZE)));
+        
+        // set up the robot
+        Vector2 start = Vector2.Add(TOP_LEFT, new Vector2(randCol * TILE_SIZE, randRow * TILE_SIZE));
+        robot.SetPos(start);
+        robot.SetStartPos(start);
+        
         int visitedTiles = 1;
         
         boolean endOfPath = true;
