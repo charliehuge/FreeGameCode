@@ -1,0 +1,31 @@
+<Room name="TestRoom">
+    <Hotspot name="Room" startsVisible="True">
+        <Verb name="look">
+            <Text>You are in a test room. Your palms begin to sweat, and you hope last night's cramming was enough. A grue stands in the corner, grumbling about the stock market. Out of the corner of your eye, you spy a thingy.</Text>
+        </Verb>
+    </Hotspot>
+    <Hotspot name="Thingy" startsVisible="True">
+        <Verb name="look">
+            <Text>It's a thingy.</Text>
+            <Text>It's really just a thingy. Nothing to see here.</Text>
+            <Text>Seriously. Just a thingy.</Text>
+        </Verb>
+        <Verb name="get">
+            <Text>You try to pick up the thingy, but it's slipperier than the slipperiest slipper that has ever slipped through your fingers.</Text>
+        </Verb>
+    </Hotspot>
+    <Hotspot name="Grue" startsVisible="True">
+        <Verb name="look">
+            <Text>Ack! It's a grue!</Text>
+        </Verb>
+        <Verb name="kick">
+            <Text>You kicked the grue! Your leg is stuck in the grue now. Sorry.</Text>
+        </Verb>
+        <Verb name="talk">
+            <Text>Grues don't talk. They grumble.</Text>
+        </Verb>
+        <Verb name="grumble">
+            <Text>You grumble at the grue, and the grue grumbles back.</Text>
+        </Verb>
+    </Hotspot>
+</Room>
