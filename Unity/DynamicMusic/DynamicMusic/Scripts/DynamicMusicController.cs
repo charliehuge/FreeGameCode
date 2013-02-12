@@ -27,7 +27,7 @@ public class DynamicMusicController : MonoBehaviour
 		get { return currentIntensity; }
 		set
 		{
-			currentIntensity = value;
+			currentIntensity = Mathf.Clamp( value, 0f, 1f );
 			UpdatePlayingTracks();
 		}
 	}
@@ -40,7 +40,7 @@ public class DynamicMusicController : MonoBehaviour
 	List<TrackInstance> playingTrackInstances;
 	List<TrackObject> pooledTrackObjects;
 	
-	void Start()
+	void Awake()
 	{
 		LoadSongs();
 		playingTrackInstances = new List<TrackInstance>();
@@ -114,7 +114,8 @@ public class DynamicMusicController : MonoBehaviour
 			// (start from the end, because that's the most likely place to find them)
 			for( int i = playingTrackInstances.Count - 1; i >=0; i-- )
 			{
-				if( playingTrackInstances[i].songInstance == currentSong )
+				if( playingTrackInstances[i].TrackIsPlaying() 
+					&& playingTrackInstances[i].songInstance == currentSong )
 				{
 					master = playingTrackInstances[i];
 					break;
@@ -127,7 +128,9 @@ public class DynamicMusicController : MonoBehaviour
 			int posToSyncTo = master.TrackObject.audio.timeSamples;
 			foreach( TrackInstance track in playingTrackInstances )
 			{
-				if( track != master && track.songInstance == currentSong )
+				if( track.TrackIsPlaying() 
+					&& track != master 
+					&& track.songInstance == currentSong )
 				{
 					track.TrackObject.audio.timeSamples = posToSyncTo;
 				}	
@@ -238,7 +241,8 @@ public class DynamicMusicController : MonoBehaviour
 			// (start from the end, because that's the most likely place to find them)
 			for( int i = playingTrackInstances.Count - 1; i >=0; i-- )
 			{
-				if( playingTrackInstances[i].songInstance == trackInstance.songInstance )
+				if( playingTrackInstances[i].TrackIsPlaying() 
+					&& playingTrackInstances[i].songInstance == currentSong )
 				{
 					posInSamples = playingTrackInstances[i].TrackObject.audio.timeSamples;
 					break;

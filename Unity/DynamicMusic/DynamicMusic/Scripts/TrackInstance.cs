@@ -28,6 +28,7 @@ public class TrackInstance
 	
 	public void SetTrackObject( TrackObject trackObj )
 	{
+		D.Assert( trackObj != null, "TrackObject is null" );
 		trackObject = trackObj;
 		trackObject.SetTrackDefinition( definition );
 		trackObject.Stopped += OnTrackObjectStopped;
