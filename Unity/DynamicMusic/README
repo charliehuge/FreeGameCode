@@ -9,7 +9,7 @@
 Here's the code for a dynamic music system for Unity. Unfortunately, the test track I was using isn't mine, so I can't share the example project here. Here's my best attempt at a quick tutorial:
 
 Creating SongDefinition Assets:
-- Right-click somewhere in your Project's "Assets/" Directory, and select DynamicMusic -> SongDefinition
+- Right-click somewhere in your Project's "Assets/Resources" Directory, and select DynamicMusic -> SongDefinition
 - Name the file/song whatever you'd like.
 - Click the Add Track button, drag in an AudioClip, and set the intensity and mood(s).
 
