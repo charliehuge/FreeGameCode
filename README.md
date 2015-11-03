@@ -1,4 +1,6 @@
-## Free Game Code - Some (hopefully) useful bits of game and related code.
+# Free Game Code
+
+Some (hopefully) useful bits of game and related code.
 
 Here's some other things I make: [derelict.computer](http://derelict.computer)
 
