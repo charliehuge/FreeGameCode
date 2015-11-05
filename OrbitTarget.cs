@@ -3,14 +3,14 @@ using System.Collections;
 
 public class OrbitTarget : MonoBehaviour
 {
-    public float TargetDistance = 10f;
-    public float TargetHeight = 1f;
-    public float TargetRotation = 0f;
-    public float DistanceDamping = 1f;
-    public float HeightDamping = 1f;
-    public float RotationDamping = 1f;
-    public float LookDamping = 1f;
-    public float AutoOrbitSpeed = 0f;
+    [Tooltip("Toggles orbiting")] public bool Active = true;
+    [Tooltip("Toggles staying or moving toward the target when orbiting is turned off")] public bool HoldOnInactive = false;
+    [Range(0f, 100f)] public float Distance = 10f;
+    [Range(-90f, 90f)] public float Tilt = 1f;
+    public float Rotation = 0f;
+    [Range(0.1f, 20f)] public float MoveDamping = 1f;
+    [Range(0.1f, 20f)] public float LookDamping = 1f;
+    [Range(-360f, 360f)] public float AutoOrbitSpeed = 0f;
 
     [SerializeField] private Transform _target;
 
@@ -21,23 +21,35 @@ public class OrbitTarget : MonoBehaviour
             return;
         }
 
-        TargetRotation += AutoOrbitSpeed*Time.deltaTime;
+        if (!Active && HoldOnInactive)
+        {
+            return;
+        }
 
-        var toMe = transform.position - _target.position;
-        var currentDistance = toMe.magnitude;
-        var currentHeight = toMe.y;
-        var currentRotation = Mathf.Atan2(toMe.z, toMe.x) * Mathf.Rad2Deg;
+        Vector3 targetPos;
 
-        var newDistance = Mathf.Lerp(currentDistance, TargetDistance, Time.deltaTime*DistanceDamping);
-        var newHeight = Mathf.Lerp(currentHeight, TargetHeight, Time.deltaTime*HeightDamping);
-        var newRotation = Mathf.LerpAngle(currentRotation, TargetRotation, Time.deltaTime*RotationDamping);
+        if (Active)
+        {
+            Rotation += AutoOrbitSpeed*Time.deltaTime;
 
-        var newRotationRads = newRotation*Mathf.Deg2Rad;
-        var newRotationDir = new Vector3(Mathf.Cos(newRotationRads), 0f, Mathf.Sin(newRotationRads)) * newDistance;
-        newRotationDir.y = newHeight;
-        transform.position = _target.position + newRotationDir.normalized*newDistance;
+            var tiltRads = Tilt*Mathf.Deg2Rad;
+            var tiltL = Mathf.Cos(tiltRads);
+            var tiltH = Mathf.Sin(tiltRads);
+            var rotRads = Rotation*Mathf.Deg2Rad;
+            var rotX = Mathf.Sin(rotRads);
+            var rotZ = Mathf.Cos(rotRads);
+            targetPos = _target.position + new Vector3(tiltL*rotX*-1f, tiltH, tiltL*rotZ*-1f)*Distance;
 
-        var lookRotation = Quaternion.LookRotation(_target.position - transform.position);
+        }
+        else
+        {
+            targetPos = _target.position;
+        }
+
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime*MoveDamping);
+
+        var toTarget = _target.position - transform.position;
+        var lookRotation = (toTarget != Vector3.zero) ? Quaternion.LookRotation(toTarget) : Quaternion.identity;
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime*LookDamping);
     }
 }
