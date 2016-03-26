@@ -10,7 +10,7 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class AudioVolumeSlider : MonoBehaviour
 {
-    private const float MinVolume = -100f;
+    private const float MinVolume = -60f;
 
     private const float MaxVolume = 0f;
 
