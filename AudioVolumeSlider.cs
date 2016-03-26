@@ -14,11 +14,22 @@ public class AudioVolumeSlider : MonoBehaviour
 
     private const float MaxVolume = 0f;
 
-    [Range(MinVolume, MaxVolume), Tooltip("Volume (dB)")] public float Volume;
+    [SerializeField, Range(MinVolume, MaxVolume), Tooltip("Volume (dB)")] private float _volume;
 
     private AudioSource _audioSource;
 
+    public void SetVolume(float volume)
+    {
+        _volume = volume;
+        Refresh();
+    }
+
     private void OnValidate()
+    {
+        Refresh();
+    }
+
+    private void Refresh()
     {
         if (_audioSource == null)
         {
@@ -26,15 +37,15 @@ public class AudioVolumeSlider : MonoBehaviour
         }
 
         // guard against out of range values
-        if (Volume > MaxVolume)
+        if (_volume > MaxVolume)
         {
-            Volume = MaxVolume;
+            _volume = MaxVolume;
         }
-        else if (Volume < MinVolume)
+        else if (_volume < MinVolume)
         {
-            Volume = MinVolume;
+            _volume = MinVolume;
         }
 
-        _audioSource.volume = Mathf.Pow(10f, Volume / 20f);
+        _audioSource.volume = Mathf.Pow(10f, _volume / 20f);
     }
 }
