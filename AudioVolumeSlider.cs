@@ -28,11 +28,11 @@ public class AudioVolumeSlider : MonoBehaviour
         // guard against out of range values
         if (Volume > MaxVolume)
         {
-            Volume = 0;
+            Volume = MaxVolume;
         }
         else if (Volume < MinVolume)
         {
-            Volume = -100f;
+            Volume = MinVolume;
         }
 
         _audioSource.volume = Mathf.Pow(10f, Volume / 20f);
